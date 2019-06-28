@@ -16,6 +16,7 @@ RUN ./caddy -plugins
 FROM alpine:3.9
 COPY --from=0 /go/caddy/caddy /usr/local/bin/caddy
 RUN apk add --no-cache ca-certificates
+ADD ./config /etc/caddy
 ENV HOME "/caddy"
 VOLUME /caddy
 EXPOSE 80 443
